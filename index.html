@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Our 6-Month of Love 💞</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#FFF0F5;--accent:#D72638;--highlight:#FF7BAC;
+      --muted:#444;--card:#FFF;
+      --shadow:0 4px 15px rgba(0,0,0,0.1);
+      --glow:0 0 18px rgba(220,20,60,0.3),0 5px 20px rgba(0,0,0,0.08);
+    }
+    html,body{
+      height:100%;margin:0;font-family:Kanit,system-ui,Segoe UI,Roboto,sans-serif;
+      background:linear-gradient(180deg,#fff 0%,var(--bg) 80%);
+      color:var(--muted);overflow-x:hidden;
+    }
+
+    /* 🎈 เอฟเฟกต์หัวใจและฟองสบู่ */
+    .floating-emoji {
+      position: fixed;
+      bottom: -50px;
+      font-size: 24px;
+      opacity: 0.8;
+      animation: floatUp linear forwards;
+      z-index: 0;
+      pointer-events: none;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+    }
+
+    .intro{
+      position:fixed;inset:0;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;z-index:50;
+      background:radial-gradient(ellipse at center,rgba(255,255,255,0.95),var(--bg) 80%);
+      backdrop-filter:blur(5px);
+      transition:opacity .8s ease,visibility .8s ease;
+    }
+    .intro .title{
+      font-family:'Great Vibes',cursive;
+      font-size:clamp(52px,9vw,100px);
+      color:var(--accent);
+      text-shadow:0 4px 8px rgba(220,20,60,0.3);
+      margin:0 0 12px;text-align:center;letter-spacing:2px;
+    }
+    .intro .subtitle{font-size:clamp(15px,3vw,26px);opacity:.9;margin-bottom:24px;color:#777;}
+    .enter-btn{
+      border:0;padding:12px 32px;border-radius:999px;font-weight:600;cursor:pointer;
+      background:linear-gradient(90deg,#FF7BAC,#D72638);
+      box-shadow:var(--glow);color:#fff;letter-spacing:1px;transition:transform .3s;
+    }
+    .enter-btn:hover{transform:scale(1.05);}
+    .scene{display:none}
+    .container{
+      position:relative;max-width:1080px;margin:80px auto;padding:40px;
+      background:var(--card);border-radius:20px;box-shadow:var(--shadow);
+      border:1px solid #f0f0f0;z-index:5;
+    }
+    header{display:flex;align-items:center;gap:24px;border-bottom:1px solid #f0f0f0;padding-bottom:20px;}
+    .logo{
+      width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+      font-size:32px;background:var(--accent);color:#fff;box-shadow:0 4px 15px rgba(220,20,60,0.4);
+    }
+    h1{margin:0;font-family:'Great Vibes',cursive;font-size:clamp(30px,4vw,56px);color:var(--accent);}
+    .meta{margin-left:auto;text-align:right;color:var(--muted);font-size:16px;}
+    .hero{display:grid;grid-template-columns:2fr 1fr;gap:30px;margin-top:30px}
+    .panel{
+      background:#FEF6F7;padding:20px;border-radius:12px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);border:1px solid #ffe8e8;
+    }
+    .count{font-size:60px;font-weight:700;color:var(--accent);text-align:center;font-family:'Great Vibes',cursive;}
+    .label{opacity:.8;text-align:center;margin-top:6px;font-size:14px}
+
+    /* ✨ แต่งรูปให้ละมุน */
+    .photos{display:flex;gap:12px;flex-wrap:wrap;margin-top:15px;}
+    .photos img{
+      width:calc(50% - 6px);
+      border-radius:16px;
+      display:block;
+      transition:transform .4s, filter .4s;
+      box-shadow:0 6px 20px rgba(255,105,180,0.4);
+      border:2px solid #ffb6c1;
+      filter:saturate(1.2) brightness(1.05);
+    }
+    .photos img:hover{
+      transform:scale(1.05) rotate(1deg);
+      filter:saturate(1.4) brightness(1.1);
+    }
+
+    .reveal{margin-top:20px;padding:15px;border-radius:12px;background:var(--bg);text-align:center;border:1px dashed var(--highlight);}
+    .reveal button{
+      border:0;padding:10px 20px;border-radius:999px;
+      background:linear-gradient(90deg,#D72638,#FF7BAC);
+      color:#fff;cursor:pointer;font-weight:600;box-shadow:var(--glow);
+    }
+    #secret{
+      margin-top:15px;padding:15px;border-radius:10px;background:#FFE4E9;color:#8B0000;
+      font-style:italic;border-left:5px solid var(--accent);
+      line-height:1.8;
+    }
+    footer{margin-top:30px;text-align:center;color:#9e9ca0;font-size:14px;padding-top:15px;border-top:1px solid #eee;}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}.photos img{width:100%}}
+  </style>
+</head>
+<body>
+  <main class="intro" id="intro">
+    <h1 class="title">Our Red Love Story 💕</h1>
+    <p class="subtitle">กดเพื่อเข้าสู่โลกแห่งความทรงจำของเรา ❤️</p>
+    <button class="enter-btn" id="enter">เข้าเว็บไซต์แห่งรัก</button>
+  </main>
+
+  <div class="container" id="site" style="opacity:0;transform:translateY(8px);transition:opacity .6s ease, transform .6s ease;pointer-events:none">
+    <header>
+      <div class="logo">💞</div>
+      <div>
+        <h1 id="headline">สุขสันต์ครบรอบ 6 เดือนของเรา ✨</h1>
+        <div class="meta">วันที่ครบรอบ: <strong id="annivText">5 พฤศจิกายน 2568</strong></div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="panel">
+          <div class="count" id="daysCount">184</div>
+          <div class="label">วันที่เราได้อยู่เคียงข้างกัน และรักกันมากขึ้นทุกวินาที 💖</div>
+        </div>
+
+        <div class="panel" style="margin-top:15px">
+          <h3 style="margin:0 0 8px 0;color:var(--accent);font-weight:400;">📸 Our Precious Moments</h3>
+          <div class="photos">
+            <img src="IMG_20250821_025052.png" alt="photo1">
+            <img src="IMG_20250920_005530.png" alt="photo2">
+          </div>
+        </div>
+
+        <div class="reveal">
+          <button id="revealBtn">เปิดข้อความจากใจ 💌</button>
+          <div id="secret" style="display:none;">
+            สุขสันต์วันครบรอบ 6 เดือน ของเราน่าาาาเบบี๋ เค้าไม่ลืมวันครบรอบของเราหรอกก55555 เค้ารักเบบี๋มากกเลย ก็ขอโทษด้วยที่ช่วงนี้ทำตัวหน้าหงุดหงิด เค้าทำตัวไม่น่ารักใส่บี๋
+            แต่เค้ารักบี๋มากๆเลย กลับมาก็แค่ได้ยินเสียงได้ดูหนังได้เล่นเกมด้วยกัน ก็หายเหนื่อยแล้ว อยู่ด้วยกันไปนานๆน่ะ ถึงแม้เราทั้งคู่ถ้าวันไหนทะเราะกัน
+            ขอให้คุยปรับความเข้าใจกันดีๆ เราจะได้อยู่ด้วยกันนานนนน จุ๊ฟม๊วฟฟฟฟฟ 
+            สุขสันต์วันครบรอบ 6 เดือนนะที่รัก 💗  
+            <br><br><b>เธอคือความสงบในวันที่วุ่นวาย และคือรอยยิ้มที่ฉันไม่อยากหยุดมอง 💗</b>
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h3 style="margin-top:0;color:var(--accent);font-weight:400;">🎵 Our Soundtrack</h3>
+        <p>เพลงพื้นหลัง: <button id="playMusic">เล่นเพลงรัก / หยุด</button></p>
+        <p>  Christina Perri - A Thousand Years (Romantic Scarlet)</p>
+        <p style="margin-top:20px;font-size:12px;opacity:0.8;">"Love is not about time we’ve spent, but how deeply we’ve felt every second."</p>
+      </aside>
+    </section>
+
+    <footer>❤️</footer>
+  </div>
+
+  <audio id="bgm" loop preload="auto">
+    <source src="Christina Perri - A Thousand Years [Official Music Video] - Christina Perri.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const $ = s => document.querySelector(s);
+    const bgm = $('#bgm');
+
+    $('#enter').addEventListener('click',()=>{
+      $('#intro').style.opacity='0';
+      $('#intro').style.visibility='hidden';
+      const site=$('#site');
+      site.style.pointerEvents='auto';
+      site.style.opacity='1';
+      site.style.transform='translateY(0)';
+      bgm.play().catch(()=>{});
+    });
+
+    $('#playMusic').addEventListener('click',()=>{
+      if(bgm.paused) bgm.play(); else bgm.pause();
+    });
+
+    $('#revealBtn').addEventListener('click',()=>{
+      const s=$('#secret');
+      s.style.display = s.style.display==='none'?'block':'none';
+    });
+
+    // 💫 เอฟเฟกต์หัวใจและฟองสบู่
+    const emojis = ['💖','💞','💓','💗','💘','🫧','💝'];
+    function spawnEmoji(){
+      const emoji = document.createElement('div');
+      emoji.className = 'floating-emoji';
+      emoji.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+      emoji.style.left = Math.random()*100 + 'vw';
+      emoji.style.animationDuration = (4+Math.random()*5) + 's';
+      emoji.style.fontSize = (16 + Math.random()*24) + 'px';
+      document.body.appendChild(emoji);
+      setTimeout(()=>emoji.remove(),9000);
+    }
+    setInterval(spawnEmoji,600);
+  </script>
+</body>
+</html>
